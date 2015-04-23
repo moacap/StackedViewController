@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'StackedViewController', :exclusive => true do
+  pod "StackedViewController", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "StackedViewController", :path => "../"
+
+  pod 'FBSnapshotTestCase'
+end
