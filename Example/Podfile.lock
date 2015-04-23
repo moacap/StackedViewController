@@ -1,0 +1,14 @@
+PODS:
+  - StackedViewController (0.1.0)
+
+DEPENDENCIES:
+  - StackedViewController (from `../`)
+
+EXTERNAL SOURCES:
+  StackedViewController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StackedViewController: 52a7ed71791dd3eb334e521d9b08f571c475492b
+
+COCOAPODS: 0.36.4
