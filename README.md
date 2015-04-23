@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 [![Platform](https://img.shields.io/cocoapods/p/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 
-A Container View Controller like UIPageViewController.
+A ContainerViewController like UIPageViewController.
 
 StackedViewController supports iPhone and iPad.
 
