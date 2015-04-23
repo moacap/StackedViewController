@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 [![Platform](https://img.shields.io/cocoapods/p/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 
+A Container View Controller like UIPageViewController.
+
+
 ![Movie](https://github.com/ifapmzadu6/StackedViewController/blob/master/Movie.gif)
 
 ## Usage
