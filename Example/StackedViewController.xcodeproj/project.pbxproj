@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AB04C160531C4CF69189A56 /* libPods-StackedViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38711C18C34E27823DC5208B /* libPods-StackedViewController.a */; };
 		7115999F1AE8737800CC6CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115999E1AE8737800CC6CF1 /* AppDelegate.swift */; };
 		711599A11AE8737800CC6CF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599A01AE8737800CC6CF1 /* ViewController.swift */; };
 		711599A41AE8737800CC6CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711599A21AE8737800CC6CF1 /* Main.storyboard */; };
@@ -17,7 +16,6 @@
 		711599BF1AE8740700CC6CF1 /* Pod in Resources */ = {isa = PBXBuildFile; fileRef = 711599BE1AE8740700CC6CF1 /* Pod */; };
 		711599C41AE8805D00CC6CF1 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599C31AE8805D00CC6CF1 /* StackedViewController.swift */; };
 		711599C51AE8805D00CC6CF1 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599C31AE8805D00CC6CF1 /* StackedViewController.swift */; };
-		D1AE96CF4B795DDEE0D4231A /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E38E71B8FD6C4F6C1F3754E4 /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +37,12 @@
 		711599A31AE8737800CC6CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		711599A51AE8737800CC6CF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		711599A81AE8737800CC6CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		711599AE1AE8737800CC6CF1 /* StackedViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = StackedViewControllerTests.xctest; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		711599AE1AE8737800CC6CF1 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		711599B31AE8737800CC6CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		711599B41AE8737800CC6CF1 /* StackedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedViewControllerTests.swift; sourceTree = "<group>"; };
 		711599BE1AE8740700CC6CF1 /* Pod */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pod; sourceTree = "<group>"; };
 		711599C31AE8805D00CC6CF1 /* StackedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackedViewController.swift; path = ../../Pod/Classes/StackedViewController.swift; sourceTree = "<group>"; };
-		7265CCDBBBD1DE96A7278310 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C8034185CA2C0B70090961FA /* Pods-StackedViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackedViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-StackedViewController/Pods-StackedViewController.release.xcconfig"; sourceTree = "<group>"; };
 		E38E71B8FD6C4F6C1F3754E4 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB279F935BCD4BDD68A6CFAD /* Pods-StackedViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackedViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StackedViewController/Pods-StackedViewController.debug.xcconfig"; sourceTree = "<group>"; };
-		F2374B32534F2A6E923B9682 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AB04C160531C4CF69189A56 /* libPods-StackedViewController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,31 +57,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1AE96CF4B795DDEE0D4231A /* libPods-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A4002ACFF1A5D5A6965B3B5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EB279F935BCD4BDD68A6CFAD /* Pods-StackedViewController.debug.xcconfig */,
-				C8034185CA2C0B70090961FA /* Pods-StackedViewController.release.xcconfig */,
-				7265CCDBBBD1DE96A7278310 /* Pods-Tests.debug.xcconfig */,
-				F2374B32534F2A6E923B9682 /* Pods-Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		711599901AE8737800CC6CF1 = {
 			isa = PBXGroup;
 			children = (
 				7115999B1AE8737800CC6CF1 /* StackedViewController */,
 				711599B11AE8737800CC6CF1 /* StackedViewControllerTests */,
 				7115999A1AE8737800CC6CF1 /* Products */,
-				5A4002ACFF1A5D5A6965B3B5 /* Pods */,
 				D43B41B70CF5929C48F0166D /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -97,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				711599991AE8737800CC6CF1 /* StackedViewController.app */,
-				711599AE1AE8737800CC6CF1 /* StackedViewControllerTests.xctest */,
+				711599AE1AE8737800CC6CF1 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,11 +138,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 711599B81AE8737800CC6CF1 /* Build configuration list for PBXNativeTarget "StackedViewController" */;
 			buildPhases = (
-				42CEE819D9F8977DFD8BBC3D /* Check Pods Manifest.lock */,
 				711599951AE8737800CC6CF1 /* Sources */,
 				711599961AE8737800CC6CF1 /* Frameworks */,
 				711599971AE8737800CC6CF1 /* Resources */,
-				941A5AC84F4B15341EF99CA8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,11 +155,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 711599BB1AE8737800CC6CF1 /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
-				5A59BDC4F7534597CCA85D50 /* Check Pods Manifest.lock */,
 				711599AA1AE8737800CC6CF1 /* Sources */,
 				711599AB1AE8737800CC6CF1 /* Frameworks */,
 				711599AC1AE8737800CC6CF1 /* Resources */,
-				24236636F934D67D70D3DA12 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,7 +166,7 @@
 			);
 			name = Tests;
 			productName = StackedViewControllerTests;
-			productReference = 711599AE1AE8737800CC6CF1 /* StackedViewControllerTests.xctest */;
+			productReference = 711599AE1AE8737800CC6CF1 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -250,69 +226,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		24236636F934D67D70D3DA12 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42CEE819D9F8977DFD8BBC3D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5A59BDC4F7534597CCA85D50 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		941A5AC84F4B15341EF99CA8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StackedViewController/Pods-StackedViewController-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		711599951AE8737800CC6CF1 /* Sources */ = {
@@ -449,7 +362,6 @@
 		};
 		711599B91AE8737800CC6CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB279F935BCD4BDD68A6CFAD /* Pods-StackedViewController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StackedViewController/Info.plist;
@@ -460,7 +372,6 @@
 		};
 		711599BA1AE8737800CC6CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8034185CA2C0B70090961FA /* Pods-StackedViewController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StackedViewController/Info.plist;
@@ -471,7 +382,6 @@
 		};
 		711599BC1AE8737800CC6CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7265CCDBBBD1DE96A7278310 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -491,7 +401,6 @@
 		};
 		711599BD1AE8737800CC6CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2374B32534F2A6E923B9682 /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
