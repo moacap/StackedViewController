@@ -10,12 +10,10 @@
 Pod::Spec.new do |s|
   s.name             = "StackedViewController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of StackedViewController."
+  s.summary          = "StackedViewController is a Container View Controller likely PageViewController."
   s.description      = <<-DESC
-                       An optional longer description of StackedViewController
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       StackedViewController is a Container View Controller likely PageViewController.
+                       Paging with Animation, PanGesture.
                        DESC
   s.homepage         = "https://github.com/ifapmzadu6/StackedViewController"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
@@ -24,7 +22,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/ifapmzadu6/StackedViewController.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
