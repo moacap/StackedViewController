@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "StackedViewController"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "StackedViewController is a Container View Controller likely PageViewController."
   s.description      = <<-DESC
                        StackedViewController is a Container View Controller likely PageViewController.
