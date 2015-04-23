@@ -6,6 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 
 A Container View Controller like UIPageViewController.
+
 StackedViewController supports iPhone and iPad.
 
 
