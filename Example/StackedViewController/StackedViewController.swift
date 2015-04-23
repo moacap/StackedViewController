@@ -156,11 +156,11 @@ class StackedViewController: UIViewController {
                     let height = screenHeight * ((1 - animationSizeDiff) + progress * animationSizeDiff)
                     let x = (screenWidth - width)/2
                     let y = (screenHeight - height)/2
-                    afterViewController.view.frame = CGRectMake(x.toHalfCGFloat(), y.toHalfCGFloat(), width.toHalfCGFloat(), height.toHalfCGFloat())
+                    afterViewController.view.frame = CGRectMake(x, y, width, height)
                     afterViewController.view.alpha = (1 - animationAlphaDiff) + progress * animationAlphaDiff
                 }
                 else {
-                    visibleViewController?.view.frame = CGRectMake(-(horizontalDiff * animationBounceSize).toHalfCGFloat(), 0, screenWidth.toHalfCGFloat(), screenHeight.toHalfCGFloat())
+                    visibleViewController?.view.frame = CGRectMake(-(horizontalDiff * animationBounceSize), 0, screenWidth, screenHeight)
                 }
                 
                 if let visibleViewController = visibleViewController {
@@ -182,10 +182,10 @@ class StackedViewController: UIViewController {
                     let height = screenHeight * (1 - progress * animationSizeDiff)
                     let x = (screenWidth - width)/2
                     let y = (screenHeight - height)/2
-                    visibleViewController?.view.frame = CGRectMake(x.toHalfCGFloat(), y.toHalfCGFloat(), width.toHalfCGFloat(), height.toHalfCGFloat())
+                    visibleViewController?.view.frame = CGRectMake(x, y, width, height)
                     visibleViewController?.view.alpha = 1 - progress * animationAlphaDiff
                     
-                    beforeViewController.view.frame = CGRectMake(-(screenWidth + horizontalDiff).toHalfCGFloat(), 0, screenWidth.toHalfCGFloat(), screenHeight.toHalfCGFloat())
+                    beforeViewController.view.frame = CGRectMake(-(screenWidth + horizontalDiff), 0, screenWidth, screenHeight)
                     beforeViewController.view.alpha = 1
                 }
                 else {
@@ -195,7 +195,7 @@ class StackedViewController: UIViewController {
                     let height = screenHeight * (1 - progress * animationSizeDiff)
                     let x = (screenWidth - width)/2
                     let y = (screenHeight - height)/2
-                    visibleViewController?.view.frame = CGRectMake(x.toHalfCGFloat(), y.toHalfCGFloat(), width.toHalfCGFloat(), height.toHalfCGFloat())
+                    visibleViewController?.view.frame = CGRectMake(x, y, width, height)
                     visibleViewController?.view.alpha = 1 - progress * animationAlphaDiff
                 }
                 
@@ -262,7 +262,7 @@ class StackedViewController: UIViewController {
         let height = screenHeight * (1 - animationSizeDiff)
         let x = (screenWidth - width)/2
         let y = (screenHeight - height)/2
-        afterViewController?.view.frame = CGRectMake(x.toHalfCGFloat(), y.toHalfCGFloat(), width.toHalfCGFloat(), height.toHalfCGFloat())
+        afterViewController?.view.frame = CGRectMake(x, y, width, height)
         afterViewController?.view.alpha = 1 - animationAlphaDiff
     }
     
@@ -513,25 +513,3 @@ class StackedViewController: UIViewController {
     }
     
 }
-
-
-extension Double {
-    
-    func toHalfCGFloat() -> CGFloat {
-        return CGFloat(halfRound())
-    }
-    
-    func halfRound() -> Double {
-        return round(self*2)/2
-    }
-    
-}
-
-extension CGFloat {
-    
-    func toHalfCGFloat() -> CGFloat {
-        return Double(self).toHalfCGFloat()
-    }
-    
-}
-
