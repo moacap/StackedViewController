@@ -5,11 +5,20 @@
 [![License](https://img.shields.io/cocoapods/l/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 [![Platform](https://img.shields.io/cocoapods/p/StackedViewController.svg?style=flat)](http://cocoapods.org/pods/StackedViewController)
 
+A ContainerViewController like UIPageViewController.
+
+StackedViewController supports iPhone and iPad.
+
+
+![Movie](https://github.com/ifapmzadu6/StackedViewController/blob/master/Movie.gif)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+iOS 8.0
 
 ## Installation
 
