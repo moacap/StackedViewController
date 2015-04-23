@@ -15,8 +15,8 @@
 		711599A91AE8737800CC6CF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 711599A71AE8737800CC6CF1 /* LaunchScreen.xib */; };
 		711599B51AE8737800CC6CF1 /* StackedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599B41AE8737800CC6CF1 /* StackedViewControllerTests.swift */; };
 		711599BF1AE8740700CC6CF1 /* Pod in Resources */ = {isa = PBXBuildFile; fileRef = 711599BE1AE8740700CC6CF1 /* Pod */; };
-		711599C11AE8741800CC6CF1 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599C01AE8741800CC6CF1 /* StackedViewController.swift */; };
-		711599C21AE8741800CC6CF1 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599C01AE8741800CC6CF1 /* StackedViewController.swift */; };
+		711599C41AE8805D00CC6CF1 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599C31AE8805D00CC6CF1 /* StackedViewController.swift */; };
+		711599C51AE8805D00CC6CF1 /* StackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711599C31AE8805D00CC6CF1 /* StackedViewController.swift */; };
 		D1AE96CF4B795DDEE0D4231A /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E38E71B8FD6C4F6C1F3754E4 /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 		711599B31AE8737800CC6CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		711599B41AE8737800CC6CF1 /* StackedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedViewControllerTests.swift; sourceTree = "<group>"; };
 		711599BE1AE8740700CC6CF1 /* Pod */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pod; sourceTree = "<group>"; };
-		711599C01AE8741800CC6CF1 /* StackedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackedViewController.swift; sourceTree = "<group>"; };
+		711599C31AE8805D00CC6CF1 /* StackedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackedViewController.swift; path = ../../Pod/Classes/StackedViewController.swift; sourceTree = "<group>"; };
 		7265CCDBBBD1DE96A7278310 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8034185CA2C0B70090961FA /* Pods-StackedViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackedViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-StackedViewController/Pods-StackedViewController.release.xcconfig"; sourceTree = "<group>"; };
 		E38E71B8FD6C4F6C1F3754E4 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,12 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				7115999E1AE8737800CC6CF1 /* AppDelegate.swift */,
-				711599C01AE8741800CC6CF1 /* StackedViewController.swift */,
 				711599BE1AE8740700CC6CF1 /* Pod */,
 				711599A01AE8737800CC6CF1 /* ViewController.swift */,
 				711599A21AE8737800CC6CF1 /* Main.storyboard */,
 				711599A51AE8737800CC6CF1 /* Images.xcassets */,
 				711599A71AE8737800CC6CF1 /* LaunchScreen.xib */,
+				711599C31AE8805D00CC6CF1 /* StackedViewController.swift */,
 				7115999C1AE8737800CC6CF1 /* Supporting Files */,
 			);
 			path = StackedViewController;
@@ -319,7 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				711599C11AE8741800CC6CF1 /* StackedViewController.swift in Sources */,
+				711599C41AE8805D00CC6CF1 /* StackedViewController.swift in Sources */,
 				711599A11AE8737800CC6CF1 /* ViewController.swift in Sources */,
 				7115999F1AE8737800CC6CF1 /* AppDelegate.swift in Sources */,
 			);
@@ -329,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				711599C21AE8741800CC6CF1 /* StackedViewController.swift in Sources */,
+				711599C51AE8805D00CC6CF1 /* StackedViewController.swift in Sources */,
 				711599B51AE8737800CC6CF1 /* StackedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
