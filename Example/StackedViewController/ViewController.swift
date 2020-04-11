@@ -15,7 +15,7 @@ class ViewController: UIViewController, StackedViewControllerDataSource, Stacked
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = UIColor.black
         
         let initialViewController = UIViewController()
         initialViewController.view.backgroundColor = randomColor()
@@ -59,7 +59,7 @@ class ViewController: UIViewController, StackedViewControllerDataSource, Stacked
         return color(red: Int(arc4random_uniform(160))+80, green: Int(arc4random_uniform(160))+80, blue: Int(arc4random_uniform(160))+80)
     }
     
-    func color(#red: Int, green: Int, blue: Int) -> UIColor {
+    func color(red: Int, green: Int, blue: Int) -> UIColor {
         return UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1)
     }
     

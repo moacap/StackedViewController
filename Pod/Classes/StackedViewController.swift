@@ -59,18 +59,18 @@ class StackedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         view.clipsToBounds = true
-        view.multipleTouchEnabled = false
-        view.exclusiveTouch = true
+        view.isMultipleTouchEnabled = false
+        view.isExclusiveTouch = true
         
         if let initialViewController = initialViewController {
-            addChildViewController(initialViewController)
+            addChild(initialViewController)
             
             initialViewController.view.frame = view.bounds
             view.addSubview(initialViewController.view)
             
-            initialViewController.didMoveToParentViewController(self)
+            initialViewController.didMove(toParent: self)
             
             visibleViewController = initialViewController
             self.initialViewController = nil
@@ -88,14 +88,14 @@ class StackedViewController: UIViewController {
         overrayView = UIView()
         if let overrayView = overrayView {
             overrayView.alpha = 0
-            overrayView.backgroundColor = UIColor.blackColor()
+            overrayView.backgroundColor = UIColor.black
             overrayView.frame = view.bounds
             view.addSubview(overrayView)
         }
         
         panGestureRecognizer = UIPanGestureRecognizer()
         if let panGestureRecognizer = panGestureRecognizer {
-            panGestureRecognizer.addTarget(self, action: "handlePanGestureRecognizer:")
+            panGestureRecognizer.addTarget(self, action: Selector("handlePanGestureRecognizer:"))
             view.addGestureRecognizer(panGestureRecognizer)
         }
     }
@@ -105,9 +105,9 @@ class StackedViewController: UIViewController {
     func loadAfterViewController() {
         if afterViewController == nil {
             if let visibleViewController = visibleViewController {
-                if let viewController = dataSource?.viewControllerAfterViewController(self, viewController: visibleViewController) {
-                    addChildViewController(viewController)
-                    viewController.didMoveToParentViewController(self)
+                if let viewController = dataSource?.viewControllerAfterViewController(stackedViewController: self, viewController: visibleViewController) {
+                    addChild(viewController)
+                    viewController.didMove(toParent: self)
                     afterViewController = viewController
                 }
             }
@@ -117,9 +117,9 @@ class StackedViewController: UIViewController {
     func loadBeforeViewController() {
         if beforeViewController == nil {
             if let visibleViewController = visibleViewController {
-                if let viewController = dataSource?.viewControllerBeforeViewController(self, viewController: visibleViewController) {
-                    addChildViewController(viewController)
-                    viewController.didMoveToParentViewController(self)
+                if let viewController = dataSource?.viewControllerBeforeViewController(stackedViewController: self, viewController: visibleViewController) {
+                    addChild(viewController)
+                    viewController.didMove(toParent: self)
                     beforeViewController = viewController
                 }
             }
@@ -128,39 +128,39 @@ class StackedViewController: UIViewController {
     
     // MARK: UIPanGestureRecognizer
     func handlePanGestureRecognizer(panGestureRecognizer: UIPanGestureRecognizer) {
-        let screenWidth = CGRectGetWidth(view.bounds)
-        let screenHeight = CGRectGetHeight(view.bounds)
-        let translation = panGestureRecognizer.translationInView(view)
+        let screenWidth = view.bounds.width
+        let screenHeight = view.bounds.height
+        let translation = panGestureRecognizer.translation(in: view)
         var horizontalDiff = -translation.x
         var progress = horizontalDiff / screenWidth
-        let velocity = panGestureRecognizer.velocityInView(view).x
+        let velocity = panGestureRecognizer.velocity(in: view).x
         
         switch panGestureRecognizer.state {
-        case UIGestureRecognizerState.Began:
+        case UIGestureRecognizerState.began:
             
             prepareForAnimation()
             
             loadAfterViewController()
             loadBeforeViewController()
             
-        case UIGestureRecognizerState.Changed:
+        case UIGestureRecognizerState.changed:
             if horizontalDiff >= 0 {
                 progress = pow(abs(progress), 2)
                 
                 prepareForAnimateToAfterViewController()
                 
                 if let afterViewController = self.afterViewController {
-                    visibleViewController?.view.frame = CGRectMake(-horizontalDiff, 0, screenWidth, screenHeight)
+                    visibleViewController?.view.frame = CGRect(x: -horizontalDiff, y: 0, width: screenWidth, height: screenHeight)
                     
                     let width = screenWidth * ((1 - animationSizeDiff) + progress * animationSizeDiff)
                     let height = screenHeight * ((1 - animationSizeDiff) + progress * animationSizeDiff)
                     let x = (screenWidth - width)/2
                     let y = (screenHeight - height)/2
-                    afterViewController.view.frame = CGRectMake(x, y, width, height)
+                    afterViewController.view.frame = CGRect(x: x, y: y, width: width, height: height)
                     afterViewController.view.alpha = (1 - animationAlphaDiff) + progress * animationAlphaDiff
                 }
                 else {
-                    visibleViewController?.view.frame = CGRectMake(-(horizontalDiff * animationBounceSize), 0, screenWidth, screenHeight)
+                    visibleViewController?.view.frame = CGRect(x: -(horizontalDiff * animationBounceSize), y: 0, width: screenWidth, height: screenHeight)
                 }
                 
                 if let visibleViewController = visibleViewController {
@@ -182,10 +182,10 @@ class StackedViewController: UIViewController {
                     let height = screenHeight * (1 - progress * animationSizeDiff)
                     let x = (screenWidth - width)/2
                     let y = (screenHeight - height)/2
-                    visibleViewController?.view.frame = CGRectMake(x, y, width, height)
+                    visibleViewController?.view.frame = CGRect(x: x, y: y, width: width, height: height)
                     visibleViewController?.view.alpha = 1 - progress * animationAlphaDiff
                     
-                    beforeViewController.view.frame = CGRectMake(-(screenWidth + horizontalDiff), 0, screenWidth, screenHeight)
+                    beforeViewController.view.frame = CGRect(x: -(screenWidth + horizontalDiff), y: 0, width: screenWidth, height: screenHeight)
                     beforeViewController.view.alpha = 1
                 }
                 else {
@@ -195,20 +195,20 @@ class StackedViewController: UIViewController {
                     let height = screenHeight * (1 - progress * animationSizeDiff)
                     let x = (screenWidth - width)/2
                     let y = (screenHeight - height)/2
-                    visibleViewController?.view.frame = CGRectMake(x, y, width, height)
+                    visibleViewController?.view.frame = CGRect(x: x, y: y, width: width, height: height)
                     visibleViewController?.view.alpha = 1 - progress * animationAlphaDiff
                 }
                 
                 afterViewController?.view.alpha = 0
             }
             
-        case UIGestureRecognizerState.Cancelled:
+        case UIGestureRecognizerState.cancelled:
             fallthrough
             
-        case UIGestureRecognizerState.Failed:
+        case UIGestureRecognizerState.failed:
             fallthrough
             
-        case UIGestureRecognizerState.Ended:
+        case UIGestureRecognizerState.ended:
             if horizontalDiff >= 0 {
                 if afterViewController == nil || (horizontalDiff < screenWidth / 3 && velocity > -500) {
                     self.animateToVisibleViewController(progress: progress)
@@ -236,18 +236,18 @@ class StackedViewController: UIViewController {
     private func prepareForAnimation() {
         
         if let visibleViewController = visibleViewController {
-            delegate?.willTransitionToViewControllers(self, fromViewController: visibleViewController)
+            delegate?.willTransitionToViewControllers(stackedViewController: self, fromViewController: visibleViewController)
         }
         
-        let screenWidth = CGRectGetWidth(view.bounds)
-        let screenHeight = CGRectGetHeight(view.bounds)
+        let screenWidth = view.bounds.width
+        let screenHeight = view.bounds.height
         
         if isTransitioningVisibleViewController == false {
             isTransitioningVisibleViewController = true
             visibleViewController?.beginAppearanceTransition(false, animated: true)
         }
         
-        beforeViewController?.view.frame = CGRectMake(-screenWidth, 0, screenWidth, screenHeight)
+        beforeViewController?.view.frame = CGRect(x: -screenWidth, y: 0, width: screenWidth, height: screenHeight)
         beforeViewController?.view.alpha = 1
         
         if let visibleViewController = visibleViewController {
@@ -262,100 +262,100 @@ class StackedViewController: UIViewController {
         let height = screenHeight * (1 - animationSizeDiff)
         let x = (screenWidth - width)/2
         let y = (screenHeight - height)/2
-        afterViewController?.view.frame = CGRectMake(x, y, width, height)
+        afterViewController?.view.frame = CGRect(x: x, y: y, width: width, height: height)
         afterViewController?.view.alpha = 1 - animationAlphaDiff
     }
     
-    private func animateToAfterViewcontroller(#progress: CGFloat) {
-        view.userInteractionEnabled = false
+    private func animateToAfterViewcontroller(progress: CGFloat) {
+        view.isUserInteractionEnabled = false
         
         prepareForAnimateToAfterViewController()
         
-        let duration = NSTimeInterval(animationDuration * (1 - progress * 0.5))
-        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseIn, animations: {
+        let duration = TimeInterval(animationDuration * (1 - progress * 0.5))
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
             self.afterViewController?.view.alpha = 1
             self.afterViewController?.view.frame = self.view.bounds
             
-            let screenWidth = CGRectGetWidth(self.view.bounds)
-            let screenHeight = CGRectGetHeight(self.view.bounds)
-            let frame = CGRectMake(-screenWidth, 0, screenWidth, screenHeight)
+            let screenWidth = self.view.bounds.width
+            let screenHeight = self.view.bounds.height
+            let frame = CGRect(x: -screenWidth, y: 0, width: screenWidth, height: screenHeight)
             self.visibleViewController?.view.frame = frame
             
             self.overrayView?.frame = frame
             self.overrayView?.alpha = self.animationAlphaDiff
             
             }, completion:{ (finished: Bool) in
-                self.visibleViewController?.willMoveToParentViewController(nil)
+                self.visibleViewController?.willMove(toParent: nil)
                 self.visibleViewController?.view.removeFromSuperview()
                 self.endViewControllerTransition()
-                self.visibleViewController?.removeFromParentViewController()
+                self.visibleViewController?.removeFromParent()
                 
                 if let beforeViewController = self.beforeViewController {
-                    beforeViewController.willMoveToParentViewController(nil)
+                    beforeViewController.willMove(toParent: nil)
                     beforeViewController.view.removeFromSuperview()
-                    beforeViewController.removeFromParentViewController()
+                    beforeViewController.removeFromParent()
                 }
                 self.beforeViewController = self.visibleViewController
                 self.visibleViewController = self.afterViewController
                 self.afterViewController = nil
                 self.loadAfterViewController()
                 
-                self.view.userInteractionEnabled = true
+                self.view.isUserInteractionEnabled = true
                 
                 if let toViewController = self.visibleViewController {
                     if let fromViewController = self.beforeViewController {
-                        self.delegate?.didFinishAnimating(self, toViewController: toViewController, fromViewController: fromViewController, direction: .After)
+                        self.delegate?.didFinishAnimating(stackedViewController: self, toViewController: toViewController, fromViewController: fromViewController, direction: .After)
                     }
                 }
         })
     }
     
-    private func animateToBeforeViewController(#progress: CGFloat) {
-        view.userInteractionEnabled = false
+    private func animateToBeforeViewController(progress: CGFloat) {
+        view.isUserInteractionEnabled = false
         
         prepareForAnimateToBeforeViewController()
         
-        let duration = NSTimeInterval(animationDuration * (1 - progress * 0.5))
-        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: {
+        let duration = TimeInterval(animationDuration * (1 - progress * 0.5))
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
             self.beforeViewController?.view.frame = self.view.bounds
             self.beforeViewController?.view.alpha = 1
             
-            let screenWidth = CGRectGetWidth(self.view.bounds)
-            let screenHeight = CGRectGetHeight(self.view.bounds)
+            let screenWidth = self.view.bounds.width
+            let screenHeight = self.view.bounds.height
             let width = screenWidth * (1 - self.animationSizeDiff)
             let height = screenHeight * (1 - self.animationSizeDiff)
-            let frame = CGRectMake((screenWidth - width)/2, (screenHeight - height)/2, width, height)
+            let frame = CGRect(x: (screenWidth - width)/2, y: (screenHeight - height)/2, width: width, height: height)
             self.visibleViewController?.view.frame = frame
             self.visibleViewController?.view.alpha = 1 - self.animationAlphaDiff
             
             }, completion:{ (finished: Bool) in
-                self.visibleViewController?.willMoveToParentViewController(nil)
+                self.visibleViewController?.willMove(toParent: nil)
                 self.visibleViewController?.view.removeFromSuperview()
                 self.endViewControllerTransition()
-                self.visibleViewController?.removeFromParentViewController()
+                self.visibleViewController?.removeFromParent()
                 
                 if let afterViewController = self.afterViewController {
-                    afterViewController.willMoveToParentViewController(nil)
+                    afterViewController.willMove(toParent: nil)
                     afterViewController.view.removeFromSuperview()
-                    afterViewController.removeFromParentViewController()
+                    afterViewController.removeFromParent()
                 }
                 self.afterViewController = self.visibleViewController
                 self.visibleViewController = self.beforeViewController
                 self.beforeViewController = nil
                 self.loadBeforeViewController()
                 
-                self.view.userInteractionEnabled = true
+                self.view.isUserInteractionEnabled = true
                 
                 if let toViewController = self.visibleViewController {
                     if let fromViewController = self.afterViewController {
-                        self.delegate?.didFinishAnimating(self, toViewController: toViewController, fromViewController: fromViewController, direction: .Before)
+                        self.delegate?.didFinishAnimating(stackedViewController: self, toViewController: toViewController, fromViewController: fromViewController, direction: .Before)
                     }
                 }
         })
     }
     
-    private func animateToVisibleViewController(#progress: CGFloat) {
-        view.userInteractionEnabled = false
+    private func animateToVisibleViewController(progress: CGFloat) {
+        view.isUserInteractionEnabled = false
         
         if isTransitioningAfterViewController == true {
             isTransitioningAfterViewController = false
@@ -367,8 +367,8 @@ class StackedViewController: UIViewController {
         }
         visibleViewController?.beginAppearanceTransition(true, animated: true)
         
-        let duration = NSTimeInterval(animationDuration * (0.5 + abs(progress) * 0.5))
-        UIView.animateWithDuration(duration ,delay: 0, options: .CurveEaseOut, animations: {
+        let duration = TimeInterval(animationDuration * (0.5 + abs(progress) * 0.5))
+        UIView.animate(withDuration: duration ,delay: 0, options: .curveEaseOut, animations: {
             let frame = self.view.bounds
             self.visibleViewController?.view.frame = self.view.bounds
             self.visibleViewController?.view.alpha = 1.0
@@ -376,24 +376,24 @@ class StackedViewController: UIViewController {
             self.overrayView?.frame = self.view.bounds
             self.overrayView?.alpha = 0
             
-            let screenWidth = CGRectGetWidth(self.view.bounds)
-            let screenHeight = CGRectGetHeight(self.view.bounds)
+            let screenWidth = self.view.bounds.width
+            let screenHeight = self.view.bounds.height
             let width = screenWidth * (1 - self.animationSizeDiff)
             let height = screenHeight * (1 - self.animationSizeDiff)
             let x = ceil(screenWidth - width)/2;
             let y = ceil(screenHeight - height)/2
-            self.afterViewController?.view.frame = CGRectMake(x, y, width, height)
+            self.afterViewController?.view.frame = CGRect(x: x, y: y, width: width, height: height)
             self.afterViewController?.view.alpha = 1 - self.animationAlphaDiff
             
-            self.beforeViewController?.view.frame = CGRectMake(-screenWidth, 0, screenWidth, screenHeight)
+            self.beforeViewController?.view.frame = CGRect(x: -screenWidth, y: 0, width: screenWidth, height: screenHeight)
             self.beforeViewController?.view.alpha = 1
             
             }, completion:{ (finished: Bool) in
                 self.endViewControllerTransition()
                 
-                self.view.userInteractionEnabled = true
+                self.view.isUserInteractionEnabled = true
                 
-                self.delegate?.didFinishAnimating(self, toViewController: self.visibleViewController, fromViewController: nil, direction: .Visible)
+                self.delegate?.didFinishAnimating(stackedViewController: self, toViewController: self.visibleViewController, fromViewController: nil, direction: .Visible)
         })
     }
     
@@ -430,7 +430,7 @@ class StackedViewController: UIViewController {
         }
         if let afterViewController = self.afterViewController {
             if afterViewController.view.superview == nil {
-                view.insertSubview(afterViewController.view, atIndex: 0)
+                view.insertSubview(afterViewController.view, at: 0)
             }
         }
     }
@@ -459,7 +459,7 @@ class StackedViewController: UIViewController {
     
     // MARK: Control
     
-    func moveAfterViewController(#animated: Bool) {
+    func moveAfterViewController(animated: Bool) {
         if afterViewController != nil {
             prepareForAnimation()
             prepareForAnimateToAfterViewController()
@@ -467,7 +467,7 @@ class StackedViewController: UIViewController {
         }
     }
     
-    func moveBeforeViewController(#animated: Bool) {
+    func moveBeforeViewController(animated: Bool) {
         if beforeViewController != nil {
             prepareForAnimation()
             prepareForAnimateToBeforeViewController()
@@ -475,28 +475,28 @@ class StackedViewController: UIViewController {
         }
     }
     
-    func setVisibleViewController(#viewController: UIViewController) {
+    func setVisibleViewController(viewController: UIViewController) {
         
         if let visibleViewController = visibleViewController {
-            visibleViewController.willMoveToParentViewController(nil)
+            visibleViewController.willMove(toParent: nil)
             visibleViewController.view.removeFromSuperview()
-            visibleViewController.removeFromParentViewController()
+            visibleViewController.removeFromParent()
         }
         visibleViewController = nil
         
-        addChildViewController(viewController)
+        addChild(viewController)
         viewController.view.frame = view.bounds
         view.addSubview(viewController.view)
-        viewController.didMoveToParentViewController(self)
+        viewController.didMove(toParent: self)
         
         visibleViewController = viewController
     }
     
     func refreshAfterViewController() {
         if let afterViewController = afterViewController {
-            afterViewController.willMoveToParentViewController(nil)
+            afterViewController.willMove(toParent: nil)
             afterViewController.view.removeFromSuperview()
-            afterViewController.removeFromParentViewController()
+            afterViewController.removeFromParent()
         }
         afterViewController = nil
         loadAfterViewController()
@@ -504,9 +504,9 @@ class StackedViewController: UIViewController {
     
     func refreshBeforeViewController() {
         if let beforeViewController = beforeViewController {
-            beforeViewController.willMoveToParentViewController(nil)
+            beforeViewController.willMove(toParent: nil)
             beforeViewController.view.removeFromSuperview()
-            beforeViewController.removeFromParentViewController()
+            beforeViewController.removeFromParent()
         }
         beforeViewController = nil
         loadBeforeViewController()
